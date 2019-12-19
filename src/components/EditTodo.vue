@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <el-dialog title="修改待办信息" :visible.sync="TodoEdit.show">
+    <el-dialog title="修改/添加待办信息" :visible.sync="TodoEdit.show">
       <el-form :model="FormData" ref="editForm" label-width="100px" :rules="formrules">
         <el-form-item label="标题" prop="title">
           <el-input v-model="FormData.title"></el-input>

@@ -1,14 +1,5 @@
 <template>
     <div id="main">
-        <div class="container el-row" style="height: fit-content;background-color: azure;">
-           <div  style="float: left">
-             <h1 id="appname">{{appname}}</h1>
-           </div>
-            <div class="userinfo" style="float: right;padding-right: 5%;">
-              <br/>
-              <p>{{username}}</p>
-            </div>
-        </div>
       <br/>
     <div class="el-row">
       <el-form :inline="true">
@@ -130,20 +121,16 @@
           </el-table>
         </div>
       </el-row>
-      <AddTodo :TodoAdd="TodoAdd" @update="receive"></AddTodo>
       <EditTodo :TodoEdit="TodoEdit" :FormData="FormData" @update="receive"></EditTodo>
     </div>
 </template>
 
 <script>
-import AddTodo from '@/components/AddTodo'
 import EditTodo from '@/components/EditTodo'
 export default {
-  components: {AddTodo, EditTodo},
+  components: {EditTodo},
   data () {
     return {
-      appname: 'Todofrontend',
-      username: '石露颖',
       index: -1,
       filter: '',
       starttime: new Date(),
@@ -197,9 +184,6 @@ export default {
         progress: '',
         note: ''
       },
-      TodoAdd: {
-        show: false
-      },
       TodoEdit: {
         show: false
       },
@@ -226,6 +210,9 @@ export default {
       var now = new Date()
       this.tipList = []
       for (var num = 0; num < this.tempList.length; num++) {
+        if (this.tempList[num].progress === '已完成') {
+          continue
+        }
         time = -this.getTime(now, this.tempList[num].deadline)
         if (time < 7) {
           temp.title = this.tempList[num].title
@@ -240,7 +227,17 @@ export default {
       }
     },
     doAdd () {
-      this.TodoAdd.show = true
+      this.TodoEdit.show = true
+      this.index = -1
+      this.FormData = {
+        title: '',
+        content: '',
+        grade: '',
+        time: '',
+        deadline: '',
+        progress: '',
+        note: ''
+      }
     },
     receive: function (data) {
       if (this.index !== -1) {

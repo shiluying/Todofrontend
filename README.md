@@ -1,30 +1,25 @@
 # todofrontend
 
-> A Vue.js project
+> 一个使用Vue.js搭建的简单的任务管理器
 
-## Build Setup
+### 系统功能介绍
+1)	创建一个新的任务，包括以下内容：a.任务标题 b.任务内容描述 c.任务开始时间 d.截至时间 e.标记（普通任务或者重要任务） f.任务完成情况（默认未完成，不一定只有两种状态，可以为多个值） g.任务完成情况的描述。
+2)	能够修改已创建的任务。
+3)	查看所有的任务，包括已完成的任务和未完成的任务。
+4)	能够删除任务。
+5)	能够查看某段时间内的任务。
+6)	根据任务的重要程度或者完成情况来查找相关任务。
+7) 能够根据快要过期或者已经过期的任务给出提示信息
 
-``` bash
-# install dependencies
-npm install
+### 系统架构
+1) 头部信息栏：展示系统信息（系统名称，用户名）
+2) 搜索栏：能够搜索任务（标记or完成度进行查询）。
+能根据时间段查询符合当前时间范围的任务
+查看全部按钮：在进行查询or筛选后点击展示所有任务列表。
+添加按钮：点击新建任务。
+3) 任务列表部分：任务标题、任务内容、任务开始时间、任务结束时间、任务标记、任务完成度、任务情况描述、对任务的操作（如编辑、删除等）。在点击编辑时应该有此任务的具体信息，可以对任务的具体信息编辑。在点击删除时能够将此任务从任务列表中删除。
+4) 提示信息部分：对任务列表的截至时间进行判断，显示距离任务截至日期还剩七天以内或者以及过期的未完成任务。
+5) 创建任务（修改任务）：对任务标题、任务内容、任务开始时间、任务结束时间、任务标记、任务完成度、任务情况描述进行编辑。除了任务情况描述外，其余均为必选项。
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### 系统界面截图
+![hadoop](https://github.com/shiluying/Todofrontend/raw/master/screenshot/1.PNG?raw=true)

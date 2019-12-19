@@ -1,21 +1,15 @@
 <template>
   <div id="app">
-    <!--<img src="./assets/logo.png">-->
+    <Header></Header>
     <router-view/>
-    <!--<p>{{msg}}</p>-->
-    <!--<Main></Main>-->
   </div>
 </template>
 
 <script>
-// import main from './components/Main.vue'
+
+import Header from '@/components/Header'
 export default {
-  // data () {
-  //   return {
-  //     msg: 'sss'
-  //   }
-  // }
-  // components: {main}
+  components: {Header}
 }
 </script>
 
